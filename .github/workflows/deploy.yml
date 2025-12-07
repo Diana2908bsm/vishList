@@ -1,28 +1,33 @@
-name: Deploy Vite app to GitHub Pages
+name: Deploy Vue 3 + Vite to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main"]  # или "master", если у тебя основная ветка master
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Получаем код из репозитория
       - uses: actions/checkout@v3
 
-      - name: Install Node
+      # 2️⃣ Устанавливаем Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
+      # 3️⃣ Устанавливаем зависимости
       - name: Install dependencies
         run: npm install
 
-      - name: Build
+      # 4️⃣ Проверка TypeScript и сборка проекта
+      - name: Build project
         run: npm run build
 
-      - name: Deploy
+      # 5️⃣ Деплой на GitHub Pages
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
