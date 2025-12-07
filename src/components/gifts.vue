@@ -12,7 +12,7 @@ const reservedButton = ()=>{
     <div class="gifts">
         <div class="gifts__box">
             <div class="gifts__img">
-                <img :src="`../src/assets/image/${gift.imageUrl}`" :alt="gift.name" />
+                <img :src="`../assets/${gift.imageUrl}`" :alt="gift.name" />
             </div>
             <div class="gifts__info">
                 <div class="gifts__title">{{ gift.name }}</div>

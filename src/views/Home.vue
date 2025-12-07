@@ -8,7 +8,7 @@ const gifts = ref<IGifts[]>([])
 
 async function getGifts() {
     try {
-        const response = await fetch('http://194.58.114.16/api/wishlistitems')
+        const response = await fetch('https://mdanya.ru/api/wishlistitems')
         const data = await response.json()
         gifts.value = data
 
@@ -22,7 +22,7 @@ const toggleButton = async (gift: IGifts) => {
     gift.isReserved = newStatus;
     try {
 
-        await fetch('http://194.58.114.16/api/wishlistitems', {
+        await fetch('https://mdanya.ru/api/wishlistitems', {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
