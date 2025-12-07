@@ -2,7 +2,7 @@ name: Deploy Vue 3 + Vite to GitHub Pages
 
 on:
   push:
-    branches: ["main"]  # или "master", если у тебя основная ветка master
+    branches: ["main"]  # если твоя основная ветка master, поменяй на "master"
 
 jobs:
   build-and-deploy:
@@ -12,11 +12,11 @@ jobs:
       # 1️⃣ Получаем код из репозитория
       - uses: actions/checkout@v3
 
-      # 2️⃣ Устанавливаем Node.js
+      # 2️⃣ Устанавливаем Node.js 22
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 22
 
       # 3️⃣ Устанавливаем зависимости
       - name: Install dependencies
